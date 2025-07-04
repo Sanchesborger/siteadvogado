@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escritório de Advocacia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#D4B062',secondary:'#1B1B1B'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Times New Roman', serif;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #D4B062;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://readdy.ai/api/search-image?query=elegant%20law%20office%20interior%20with%20dark%20wood%20paneling%2C%20leather%20furniture%2C%20sophisticated%20lighting%2C%20bookshelves%20with%20law%20books%2C%20creating%20a%20professional%20and%20luxurious%20atmosphere%20for%20a%20high-end%20law%20firm&width=1920&height=800&seq=1&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        .testimonial-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://readdy.ai/api/search-image?query=elegant%20law%20office%20interior%20with%20classic%20furniture%2C%20wooden%20desk%2C%20leather%20chair%2C%20bookshelf%20with%20law%20books%2C%20warm%20lighting%2C%20creating%20a%20professional%20and%20sophisticated%20atmosphere%20for%20client%20meetings&width=1920&height=600&seq=2&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+        }
+        .service-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 176, 98, 0.2);
+        }
+        .custom-btn {
+            transition: all 0.3s;
+        }
+        .custom-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 176, 98, 0.3);
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #D4B062;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Barra superior -->
+    <div class="w-full bg-primary text-secondary py-2 px-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex space-x-6 text-xs">
+                <a href="#" class="hover:text-white">Início</a>
+                <a href="#" class="hover:text-white">Sobre</a>
+                <a href="#" class="hover:text-white">Direito Tributário</a>
+                <a href="#" class="hover:text-white">Áreas</a>
+                <a href="#" class="hover:text-white">Carreiras</a>
+                <a href="#" class="hover:text-white">Casos</a>
+                <a href="#" class="hover:text-white">Blog</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-xs hover:text-white">ENTRAR</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cabeçalho e navegação principal -->
+    <header class="bg-secondary text-white py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="flex items-center">
+                <h1 class="text-3xl font-['Pacifico'] text-primary mr-16"><i class="ri-scales-3-line"></i></h1>
+                <span class="text-lg border-l border-gray-600 pl-4 ml-4">Nossos Serviços, Clientes Satisfeitos</span>
+            </div>
+            <div class="flex items-center">
+                <button class="bg-primary text-secondary px-4 py-2 rounded-button flex items-center whitespace-nowrap">
+                    <i class="ri-phone-line mr-2"></i>
+                    Solicite Consultoria
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu de navegação -->
+    <nav class="bg-gray-900 text-white py-3 border-t border-gray-800">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="flex space-x-8">
+                <a href="#" class="nav-link text-sm hover:text-primary">Nossa Equipe</a>
+                <a href="#" class="nav-link text-sm hover:text-primary">Nossos Serviços</a>
+                <a href="#" class="nav-link text-sm hover:text-primary">Depoimentos</a>
+                <a href="#" class="nav-link text-sm hover:text-primary">Portfólio</a>
+                <a href="#" class="nav-link text-sm hover:text-primary">Contato</a>
+                <a href="#" class="nav-link text-sm hover:text-primary">Estratégia</a>
+            </div>
+            <div class="relative">
+                <input type="text" placeholder="Pesquisar..." class="bg-gray-800 text-white text-sm py-1 px-3 pr-8 rounded border-none focus:ring-1 focus:ring-primary">
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400">
+                    <i class="ri-search-line"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seção Hero -->
+    <section class="hero-section py-32 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl font-bold mb-6">Depoimentos, Confiança</h1>
+                <p class="text-lg mb-8">
+                    Milhares de clientes satisfeitos confiam em nossos serviços profissionais. Somos um escritório experiente, fundado em 1995, que combina conhecimento jurídico avançado com um atendimento personalizado, garantindo excelência em resultados para cada cliente. Nossa equipe multidisciplinar, sempre atualizada.
+                </p>
+                <button class="bg-primary text-secondary px-8 py-3 rounded-button font-semibold custom-btn whitespace-nowrap">
+                    Entre em Contato
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Serviços -->
+    <section class="bg-secondary py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Serviço 1 -->
+                <div class="service-card bg-gray-900 p-8 rounded text-center text-white border border-gray-800">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-6 text-primary">
+                        <i class="ri-scales-3-line ri-2x"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Experiência com Direito Tributário</h3>
+                    <p class="text-gray-400">
+                        Especialistas em direito tributário com profundo conhecimento da legislação fiscal brasileira. Nossa equipe oferece soluções estratégicas para otimizar a carga tributária de forma legal e segura.
+                    </p>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div class="service-card bg-gray-900 p-8 rounded text-center text-white border border-gray-800">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-6 text-primary">
+                        <i class="ri-shield-check-line ri-2x"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Suporte Legal Abrangente</h3>
+                    <p class="text-gray-400">
+                        Oferecemos um suporte legal completo para empresas e indivíduos. Nossa abordagem é personalizada para cada cliente, garantindo que todas as necessidades jurídicas sejam atendidas com excelência.
+                    </p>
+                </div>
+
+                <!-- Serviço 3 -->
+                <div class="service-card bg-gray-900 p-8 rounded text-center text-white border border-gray-800">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-6 text-primary">
+                        <i class="ri-file-text-line ri-2x"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Consultoria Jurídica Especializada</h3>
+                    <p class="text-gray-400">
+                        Consultoria jurídica com análise técnica aprofundada e estratégias personalizadas. Nossos advogados trabalham para identificar riscos e oportunidades, garantindo segurança jurídica para seu negócio.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Depoimentos -->
+    <section class="testimonial-section py-20 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-4">Nossos Serviços, Depoimentos</h2>
+                <p class="text-lg mb-12">
+                    Descubra abaixo histórias reais de clientes satisfeitos que já experimentaram nossos serviços e confiaram em nossa expertise para resolver questões jurídicas complexas. Profissionais competentes com atendimento excepcional.
+                </p>
+                <button class="bg-primary text-secondary px-8 py-3 rounded-button font-semibold custom-btn mb-12 whitespace-nowrap">
+                    Agende uma Consulta
+                </button>
+
+                <div class="flex justify-between items-center">
+                    <button class="w-12 h-12 flex items-center justify-center border border-gray-600 rounded-full hover:bg-primary hover:text-secondary transition-all">
+                        <i class="ri-arrow-left-s-line ri-lg"></i>
+                    </button>
+                    <div class="text-center px-8">
+                        <p class="italic mb-6">
+                            "O escritório de advocacia superou todas as minhas expectativas. A equipe é extremamente profissional, atenciosa e eficiente. Resolveram meu caso tributário complexo com maestria e em tempo recorde."
+                        </p>
+                        <p class="font-semibold">Ricardo Mendes, CEO da Construtech</p>
+                    </div>
+                    <button class="w-12 h-12 flex items-center justify-center border border-gray-600 rounded-full hover:bg-primary hover:text-secondary transition-all">
+                        <i class="ri-arrow-right-s-line ri-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Depoimentos Detalhados -->
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Nossos Depoimentos</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Depoimento 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Paulo Ferreira, CEO</h3>
+                    <p class="text-gray-600 mb-4">
+                        "Trabalho com esta equipe de advogados há mais de 5 anos e posso garantir que são extremamente competentes. Resolveram questões complexas de direito empresarial com muita eficiência."
+                    </p>
+                    <div class="flex text-primary">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Carla De Santis</h3>
+                    <p class="text-gray-600 mb-4">
+                        "Excelente consultoria com profissionais muito preparados. Nos ajudaram em um processo tributário complexo que resultou em economia significativa para nossa empresa."
+                    </p>
+                    <div class="flex text-primary">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4">Grupo De Investimentos Vox</h3>
+                    <p class="text-gray-600 mb-4">
+                        "Profissionais extremamente capacitados com excelente conhecimento em direito societário. Nos auxiliaram na estruturação de um complexo acordo entre sócios e na expansão internacional."
+                    </p>
+                    <div class="flex text-primary">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-half-fill"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section class="bg-secondary py-16 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Entre em Contato</h2>
+                    <p class="mb-8">
+                        Estamos prontos para atender suas necessidades jurídicas. Preencha o formulário ao lado ou entre em contato através dos nossos canais de comunicação.
+                    </p>
+                    
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+                            <i class="ri-map-pin-line ri-lg"></i>
+                        </div>
+                        <div>
+                            <p>Av. Paulista, 1000, 15º andar</p>
+                            <p>Bela Vista, São Paulo - SP, 01310-100</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+                            <i class="ri-phone-line ri-lg"></i>
+                        </div>
+                        <div>
+                            <p>+55 (11) 3456-7890</p>
+                            <p>+55 (11) 98765-4321</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center mb-8">
+                        <div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+                            <i class="ri-mail-line ri-lg"></i>
+                        </div>
+                        <div>
+                            <p>contato@escritorioadvocacia.com.br</p>
+                            <p>atendimento@escritorioadvocacia.com.br</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center border border-gray-700 rounded-full hover:bg-primary hover:text-secondary transition-all">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center border border-gray-700 rounded-full hover:bg-primary hover:text-secondary transition-all">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center border border-gray-700 rounded-full hover:bg-primary hover:text-secondary transition-all">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center border border-gray-700 rounded-full hover:bg-primary hover:text-secondary transition-all">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <form class="bg-gray-900 p-8 rounded-lg">
+                        <h3 class="text-2xl font-semibold mb-6">Solicite uma Consulta</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm mb-2">Nome Completo</label>
+                                <input type="text" class="w-full bg-gray-800 border-none rounded p-3 text-white" placeholder="Seu nome">
+                            </div>
+                            <div>
+                                <label class="block text-sm mb-2">Email</label>
+                                <input type="email" class="w-full bg-gray-800 border-none rounded p-3 text-white" placeholder="seu@email.com">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-sm mb-2">Telefone</label>
+                                <input type="tel" class="w-full bg-gray-800 border-none rounded p-3 text-white" placeholder="(00) 00000-0000">
+                            </div>
+                            <div>
+                                <label class="block text-sm mb-2">Área Jurídica</label>
+                                <div class="relative">
+                                    <select class="w-full bg-gray-800 border-none rounded p-3 text-white appearance-none pr-10">
+                                        <option>Direito Tributário</option>
+                                        <option>Direito Empresarial</option>
+                                        <option>Direito Civil</option>
+                                        <option>Direito Trabalhista</option>
+                                        <option>Outros</option>
+                                    </select>
+                                    <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm mb-2">Mensagem</label>
+                            <textarea class="w-full bg-gray-800 border-none rounded p-3 text-white h-32" placeholder="Descreva brevemente sua necessidade..."></textarea>
+                        </div>
+                        
+                        <button class="w-full bg-primary text-secondary py-3 rounded-button font-semibold custom-btn whitespace-nowrap">
+                            Enviar Solicitação
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Sobre Nós</h3>
+                    <p class="text-gray-400 mb-6">
+                        Somos um escritório de advocacia com mais de 25 anos de experiência, oferecendo serviços jurídicos de excelência para empresas e indivíduos.
+                    </p>
+                    <h1 class="text-3xl font-['Pacifico'] text-primary"><i class="ri-scales-3-line"></i></h1>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Áreas de Atuação</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-primary">Direito Tributário</a></li>
+                        <li><a href="#" class="hover:text-primary">Direito Empresarial</a></li>
+                        <li><a href="#" class="hover:text-primary">Direito Civil</a></li>
+                        <li><a href="#" class="hover:text-primary">Direito Trabalhista</a></li>
+                        <li><a href="#" class="hover:text-primary">Direito Imobiliário</a></li>
+                        <li><a href="#" class="hover:text-primary">Direito Internacional</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Links Úteis</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="#" class="hover:text-primary">Nossa Equipe</a></li>
+                        <li><a href="#" class="hover:text-primary">Casos de Sucesso</a></li>
+                        <li><a href="#" class="hover:text-primary">Blog Jurídico</a></li>
+                        <li><a href="#" class="hover:text-primary">Eventos</a></li>
+                        <li><a href="#" class="hover:text-primary">Carreiras</a></li>
+                        <li><a href="#" class="hover:text-primary">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">
+                        Inscreva-se para receber novidades, artigos e atualizações sobre o mundo jurídico.
+                    </p>
+                    <div class="flex mb-6">
+                        <input type="email" placeholder="Seu email" class="bg-gray-800 border-none rounded-l p-3 text-white flex-grow">
+                        <button class="bg-primary text-secondary px-4 rounded-r !rounded-button whitespace-nowrap">
+                            Inscrever
+                        </button>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center border border-gray-700 rounded-full hover:bg-primary hover:text-secondary transition-all">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center border border-gray-700 rounded-full hover:bg-primary hover:text-secondary transition-all">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center border border-gray-700 rounded-full hover:bg-primary hover:text-secondary transition-all">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center border border-gray-700 rounded-full hover:bg-primary hover:text-secondary transition-all">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 mb-4 md:mb-0">
+                        © 2025 Escritório de Advocacia. Todos os direitos reservados.
+                    </p>
+                    <div class="flex space-x-6 text-gray-500">
+                        <a href="#" class="hover:text-primary">Termos de Uso</a>
+                        <a href="#" class="hover:text-primary">Política de Privacidade</a>
+                        <a href="#" class="hover:text-primary">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script id="navigationScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(item => {
+                        item.classList.remove('text-primary');
+                    });
+                    
+                    // Add active class to clicked link
+                    this.classList.add('text-primary');
+                });
+            });
+        });
+    </script>
+
+    <script id="formScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Simple validation
+                    const inputs = form.querySelectorAll('input, textarea, select');
+                    let isValid = true;
+                    
+                    inputs.forEach(input => {
+                        if (!input.value.trim()) {
+                            isValid = false;
+                            input.classList.add('border', 'border-red-500');
+                        } else {
+                            input.classList.remove('border', 'border-red-500');
+                        }
+                    });
+                    
+                    if (isValid) {
+                        // Simulate form submission
+                        const submitButton = form.querySelector('button[type="submit"]');
+                        if (submitButton) {
+                            const originalText = submitButton.innerHTML;
+                            submitButton.innerHTML = 'Enviando...';
+                            submitButton.disabled = true;
+                            
+                            setTimeout(() => {
+                                alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                                form.reset();
+                                submitButton.innerHTML = originalText;
+                                submitButton.disabled = false;
+                            }, 1500);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script id="testimonialSliderScript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonials = [
+                {
+                    text: "O escritório de advocacia superou todas as minhas expectativas. A equipe é extremamente profissional, atenciosa e eficiente. Resolveram meu caso tributário complexo com maestria e em tempo recorde.",
+                    author: "Ricardo Mendes, CEO da Construtech"
+                },
+                {
+                    text: "Excelente atendimento e profissionais altamente capacitados. Conseguiram resolver uma questão societária complexa que outros escritórios não conseguiram. Recomendo fortemente.",
+                    author: "Mariana Alves, Diretora Financeira"
+                },
+                {
+                    text: "Trabalho com este escritório há mais de 10 anos e sempre fui muito bem atendido. A equipe é extremamente competente e atualizada. Resolvem questões complexas com muita eficiência.",
+                    author: "Roberto Campos, Empresário"
+                }
+            ];
+            
+            let currentIndex = 0;
+            const testimonialText = document.querySelector('.testimonial-section .text-center p:first-of-type');
+            const testimonialAuthor = document.querySelector('.testimonial-section .text-center p:last-of-type');
+            const prevButton = document.querySelector('.testimonial-section button:first-of-type');
+            const nextButton = document.querySelector('.testimonial-section button:last-of-type');
+            
+            if (testimonialText && testimonialAuthor && prevButton && nextButton) {
+                prevButton.addEventListener('click', function() {
+                    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+                    updateTestimonial();
+                });
+                
+                nextButton.addEventListener('click', function() {
+                    currentIndex = (currentIndex + 1) % testimonials.length;
+                    updateTestimonial();
+                });
+                
+                function updateTestimonial() {
+                    const current = testimonials[currentIndex];
+                    
+                    // Fade out
+                    testimonialText.style.opacity = 0;
+                    testimonialAuthor.style.opacity = 0;
+                    
+                    setTimeout(() => {
+                        testimonialText.textContent = `"${current.text}"`;
+                        testimonialAuthor.textContent = current.author;
+                        
+                        // Fade in
+                        testimonialText.style.opacity = 1;
+                        testimonialAuthor.style.opacity = 1;
+                    }, 300);
+                }
+                
+                // Set initial transition
+                testimonialText.style.transition = 'opacity 0.3s ease';
+                testimonialAuthor.style.transition = 'opacity 0.3s ease';
+            }
+        });
+    </script>
+</body>
+</html> 
